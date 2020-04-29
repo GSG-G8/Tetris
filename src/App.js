@@ -1,12 +1,10 @@
 import React from 'react';
 import './App.css';
 
-function App() {
+export default () => {
   return (
     <div className="App">
       <h1>Tetris</h1>
     </div>
   );
-}
-
-export default App;
+};
