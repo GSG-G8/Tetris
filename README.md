@@ -29,4 +29,4 @@ npm start
 
 ## Technologies 
 
-* [React js](https://reactjs.org/).
+* [React Hooks](https://reactjs.org/docs/hooks-intro.html).
