@@ -1,7 +1,5 @@
 import React from 'react';
 
-const StartButton = () => {
-  return <div>Start Game</div>;
-};
+const StartButton = () => <div>Start Game</div>;
 
 export default StartButton;
