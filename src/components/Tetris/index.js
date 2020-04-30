@@ -9,7 +9,7 @@ import useStage from '../../hooks/useStage';
 import Stage from '../Stage';
 import Display from '../Display';
 import StratButton from '../StartButton';
-import { createStage } from '../../utils/createStage';
+import { createStage, checkCollision } from '../../utils/createStage';
 
 const Tetris = () => {
   const [dropTime, setDropTime] = useState(null);
@@ -24,7 +24,9 @@ const Tetris = () => {
   };
 
   const movePlayer = (direction) => {
-    updatePlayerPos({ x: direction, y: 0 });
+    if (!checkCollision(player, stage, { x: direction, y: 0 })) {
+      updatePlayerPos({ x: direction, y: 0 });
+    }
   };
 
   const drop = () => {
