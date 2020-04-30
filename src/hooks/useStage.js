@@ -22,6 +22,11 @@ const useStage = (player, resetPLayer) => {
           }
         });
       });
+
+      if (player.collided) {
+        resetPLayer();
+      }
+
       return newStage;
     };
     setStage((prev) => updateStage(prev));
