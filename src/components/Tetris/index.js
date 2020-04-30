@@ -4,6 +4,7 @@ import './style.css';
 // Custom hooks
 import usePlayer from '../../hooks/usePlayer';
 import useStage from '../../hooks/useStage';
+import useInterval from '../../hooks/useInterval';
 
 // Components
 import Stage from '../Stage';
@@ -46,6 +47,10 @@ const Tetris = () => {
       }
     }
   };
+
+  useInterval(() => {
+    drop();
+  }, dropTime);
 
   return (
     <div className="tetris" onKeyDown={(e) => move(e)}>
