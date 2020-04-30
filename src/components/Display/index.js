@@ -1,8 +1,9 @@
 import React from 'react';
+import './style.css';
 import PropTypes from 'prop-types';
 
 const Display = ({ text }) => {
-  return <div>{text}</div>;
+  return <div className="display">{text}</div>;
 };
 
 Display.propTypes = {
