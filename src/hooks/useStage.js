@@ -12,8 +12,8 @@ const useStage = (player, resetPLayer) => {
       );
 
       // Draw the new stage(tetromino)
-      player.tetromino.map((row, y) => {
-        row.map((value, x) => {
+      player.tetromino.forEach((row, y) => {
+        row.forEach((value, x) => {
           if (value !== 0) {
             newStage[y + player.pos.y][x + player.pos.x] = [
               value,
