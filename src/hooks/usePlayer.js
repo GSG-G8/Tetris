@@ -22,6 +22,13 @@ const usePlayer = () => {
     return rotatedTetro.reverse();
   };
 
+  // check the collision when we rotate the tetro
+  const playerRotate = (stage, dir) => {
+    const clonedPlayer = JSON.parse(JSON.stringify(player));
+    clonedPlayer.tetromino = rotate(clonedPlayer.tetromino, dir);
+    setPlayer(clonedPlayer);
+  };
+
   const updatePlayerPos = ({ x, y, collided }) => {
     setPlayer((previous) => ({
       ...previous,
@@ -38,7 +45,7 @@ const usePlayer = () => {
     });
   }, []);
 
-  return [player, updatePlayerPos, resetPlayer];
+  return [player, updatePlayerPos, resetPlayer, playerRotate];
 };
 
 export default usePlayer;
