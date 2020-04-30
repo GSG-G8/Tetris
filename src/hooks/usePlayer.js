@@ -16,6 +16,10 @@ const usePlayer = () => {
     const rotatedTetro = matrix.map((_, index) =>
       matrix.map((col) => col[index])
     );
+
+    // rotate each row to get a rotated tetro
+    if (dir > 0) return rotatedTetro.map((row) => row.reverse()); // clockwise
+    return rotatedTetro.reverse();
   };
 
   const updatePlayerPos = ({ x, y, collided }) => {
