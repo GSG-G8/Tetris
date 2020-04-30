@@ -10,6 +10,14 @@ const usePlayer = () => {
     collided: false,
   });
 
+  // rotate
+  const rotate = (matrix, dir) => {
+    // make a row to become a columns
+    const rotatedTetro = matrix.map((_, index) =>
+      matrix.map((col) => col[index])
+    );
+  };
+
   const updatePlayerPos = ({ x, y, collided }) => {
     setPlayer((previous) => ({
       ...previous,
