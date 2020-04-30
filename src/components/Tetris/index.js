@@ -22,15 +22,18 @@ const Tetris = () => {
     <div className="tetris">
       <Stage stage={stage} />
       <aside className="side">
-        {gameOver ? (
-          <Display gameOver={gameOver} text="Game Over" />
-        ) : (
-          <div className="side-show">
-            <Display text="Score" />
-            <Display text="Rows" />
-            <Display text="Level" />
-          </div>
-        )}
+        <div className="side-show">
+          {gameOver ? (
+            <Display gameOver={gameOver} text="Game Over" />
+          ) : (
+            <>
+              <Display text="Score" />
+              <Display text="Rows" />
+              <Display text="Level" />
+            </>
+          )}
+        </div>
+
         <StratButton />
       </aside>
     </div>
