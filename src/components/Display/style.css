@@ -1,0 +1,9 @@
+.display {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 20px;
+  border: 4px solid #333;
+  width: 120px;
+  border-radius: 20px;
+}

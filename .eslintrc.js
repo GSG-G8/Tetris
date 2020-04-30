@@ -35,6 +35,7 @@ module.exports = {
         'allowTemplateLiterals': true
       }
     ],
+    'react/no-array-index-key': 'off',
     'prettier/prettier': [
       'error',
       {

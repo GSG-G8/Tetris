@@ -1,16 +1,15 @@
 import React from 'react';
-
-// Components
+import './style.css';
 import Stage from '../Stage';
 import Display from '../Display';
 import StratButton from '../StartButton';
 
 const Tetris = () => {
   return (
-    <div>
+    <div className="tetris">
       <Stage />
-      <aside>
-        <div>
+      <aside className="side">
+        <div className="side-show">
           <Display text="Score" />
           <Display text="Rows" />
           <Display text="Level" />

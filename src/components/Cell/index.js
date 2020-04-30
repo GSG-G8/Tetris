@@ -1,7 +1,6 @@
 import React from 'react';
+import './style.css';
 
-const Cell = () => {
-  return <div>Cell</div>;
-};
+const Cell = () => <div className="cell" />;
 
 export default Cell;
