@@ -25,7 +25,7 @@ const useStage = (player, resetPLayer) => {
       return newStage;
     };
     setStage((prev) => updateStage(prev));
-  }, [player.tetromino, player.pos.x, player.pos.y, player.collided]);
+  }, [player]);
 
   return [stage, setStage];
 };
