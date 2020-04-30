@@ -11,21 +11,21 @@ const usePlayer = () => {
   });
 
   // rotate
-  const rotate = (matrix, dir) => {
+  const rotate = (matrix, direction) => {
     // make a row to become a columns
     const rotatedTetro = matrix.map((_, index) =>
       matrix.map((col) => col[index])
     );
 
     // rotate each row to get a rotated tetro
-    if (dir > 0) return rotatedTetro.map((row) => row.reverse()); // clockwise
+    if (direction > 0) return rotatedTetro.map((row) => row.reverse()); // clockwise
     return rotatedTetro.reverse();
   };
 
   // check the collision when we rotate the tetro
-  const playerRotate = (stage, dir) => {
+  const playerRotate = (stage, direction) => {
     const clonedPlayer = JSON.parse(JSON.stringify(player));
-    clonedPlayer.tetromino = rotate(clonedPlayer.tetromino, dir);
+    clonedPlayer.tetromino = rotate(clonedPlayer.tetromino, direction);
     setPlayer(clonedPlayer);
   };
 
