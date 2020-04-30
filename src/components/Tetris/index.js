@@ -9,17 +9,46 @@ import useStage from '../../hooks/useStage';
 import Stage from '../Stage';
 import Display from '../Display';
 import StratButton from '../StartButton';
+import { createStage } from '../../utils/createStage';
 
 const Tetris = () => {
   const [dropTime, setDropTime] = useState(null);
   const [gameOver, setGameOver] = useState(false);
 
-  const [player] = usePlayer();
+  const [player, resetPlayer, updatePlayerPos] = usePlayer();
   const [stage, setStage] = useStage(player);
 
-  console.log('re-render');
+  const startGame = () => {
+    setStage(createStage());
+    resetPlayer();
+  };
+
+  const movePlayer = (direction) => {
+    updatePlayerPos({ x: direction, y: 0 });
+  };
+
+  const drop = () => {
+    updatePlayerPos({ x: 0, y: 0, collided: false });
+  };
+
+  const dropPlayer = () => {
+    drop();
+  };
+
+  const move = ({ keyCode }) => {
+    if (!gameOver) {
+      if (keyCode === 37) {
+        movePlayer(-1);
+      } else if (keyCode === 39) {
+        movePlayer(1);
+      } else if (keyCode === 40) {
+        dropPlayer();
+      }
+    }
+  };
+
   return (
-    <div className="tetris">
+    <div className="tetris" onKeyDown={(e) => move(e)}>
       <Stage stage={stage} />
       <aside className="side">
         <div className="side-show">
@@ -33,8 +62,7 @@ const Tetris = () => {
             </>
           )}
         </div>
-
-        <StratButton />
+        <StratButton callback={startGame} />
       </aside>
     </div>
   );

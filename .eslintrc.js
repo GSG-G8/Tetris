@@ -29,6 +29,7 @@ module.exports = {
     ],
     "no-return-assign": [ 2, "except-parens" ],
     "no-param-reassign": 0,
+    'jsx-a11y/no-static-element-interactions': 'off',
     'quotes': [
       2,
       'single',
