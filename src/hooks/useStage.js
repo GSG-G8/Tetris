@@ -10,9 +10,22 @@ const useStage = (player, resetPLayer) => {
       const newStage = prevStage.map((row) =>
         row.map((oneCell) => (oneCell[1] === 'clear' ? [0, 'clear'] : oneCell))
       );
+
+      // Draw the new stage(tetromino)
+      player.tetromino.map((row, y) => {
+        row.map((value, x) => {
+          if (value !== 0) {
+            newStage[y + player.pos.y][x + player.pos.x] = [
+              value,
+              `${player.collided ? 'merged' : 'clear'}`,
+            ];
+          }
+        });
+      });
+      return newStage;
     };
     setStage((prev) => updateStage(prev));
-  }, []);
+  }, [player.tetromino, player.pos.x, player.pos.y, player.collided]);
 
   return [stage, setStage];
 };
