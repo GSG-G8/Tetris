@@ -27,6 +27,8 @@ module.exports = {
         ]
       }
     ],
+    "no-return-assign": [ 2, "except-parens" ],
+    "no-param-reassign": 0,
     'quotes': [
       2,
       'single',
