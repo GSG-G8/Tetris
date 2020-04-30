@@ -26,7 +26,7 @@ const usePlayer = () => {
     });
   }, []);
 
-  return [player, setPlayer, updatePlayerPos, resetPlayer];
+  return [player, updatePlayerPos, resetPlayer];
 };
 
 export default usePlayer;
