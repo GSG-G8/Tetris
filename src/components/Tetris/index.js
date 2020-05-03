@@ -16,9 +16,10 @@ const Tetris = () => {
   const [gameOver, setGameOver] = useState(false);
 
   const [player, resetPlayer, updatePlayerPos] = usePlayer();
-  const [stage, setStage] = useStage(player);
+  const [stage, setStage] = useStage(player, resetPlayer);
 
   const startGame = () => {
+    console.log('startGame');
     setStage(createStage());
     resetPlayer();
   };
@@ -28,7 +29,7 @@ const Tetris = () => {
   };
 
   const drop = () => {
-    updatePlayerPos({ x: 0, y: 0, collided: false });
+    updatePlayerPos({ x: 0, y: 1, collided: false });
   };
 
   const dropPlayer = () => {
@@ -47,23 +48,35 @@ const Tetris = () => {
     }
   };
 
+  console.log('re-render');
+
   return (
-    <div className="tetris" onKeyDown={(e) => move(e)}>
-      <Stage stage={stage} />
-      <aside className="side">
-        <div className="side-show">
-          {gameOver ? (
-            <Display gameOver={gameOver} text="Game Over" />
-          ) : (
-            <>
-              <Display text="Score" />
-              <Display text="Rows" />
-              <Display text="Level" />
-            </>
-          )}
-        </div>
-        <StratButton callback={startGame} />
-      </aside>
+    <div
+      className="tetris-wrapper"
+      role="button"
+      tabIndex="0"
+      onKeyDown={(e) => move(e)}
+    >
+      <div className="tetris">
+        <Stage stage={stage} />
+        <aside className="side">
+          <div className="side-show">
+            {gameOver ? (
+              <Display gameOver={gameOver} text="Game Over" />
+            ) : (
+              <>
+                <Display text="Score" />
+                <Display text="Rows" />
+                <Display text="Level" />
+              </>
+            )}
+          </div>
+          <button className="start-button" type="button" onClick={startGame}>
+            Start Game
+          </button>
+          {/* <StratButton onClick={startGame} /> */}
+        </aside>
+      </div>
     </div>
   );
 };
