@@ -15,17 +15,16 @@ const Tetris = () => {
   const [dropTime, setDropTime] = useState(null);
   const [gameOver, setGameOver] = useState(false);
 
-  const [player, resetPlayer, updatePlayerPos] = usePlayer();
+  const [player, updatePlayerPos, resetPlayer] = usePlayer();
   const [stage, setStage] = useStage(player, resetPlayer);
-
-  const startGame = () => {
-    console.log('startGame');
-    setStage(createStage());
-    resetPlayer();
-  };
 
   const movePlayer = (direction) => {
     updatePlayerPos({ x: direction, y: 0 });
+  };
+
+  const startGame = () => {
+    setStage(createStage());
+    resetPlayer();
   };
 
   const drop = () => {
