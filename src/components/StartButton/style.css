@@ -1,0 +1,17 @@
+.start-button {
+  background-color: #333;
+  color: #5bd1d7;
+  height: 50px;
+  letter-spacing: 1px;
+  min-height: 30px;
+  width: 70.45%;
+  border-radius: 20px;
+  border: none;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.start-button:focus {
+  outline: none;
+}
+  
