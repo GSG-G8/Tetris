@@ -1,18 +1,32 @@
+.tetris-wrapper {
+  width: 100vw;
+  height: 100vh;
+  background-image: url('../../assets/images/jeremy-bishop-G9i_plbfDgk-unsplash.jpg');
+  overflow: hidden;
+  position: relative;
+}
+
+.tetris-wrapper:focus {
+  outline: none;
+}
+
 .tetris {
-  margin: 0 auto;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
   display: flex;
   width: 520px;
-  background-color: aqua;
+  background-color: #5bd1d7;
 }
 
 .side {
   width: 100%;
+  border: 2px solid #333;
+  border-left: none;
 }
 
 .side-show {
   height: 85%;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
   padding: 30px;
 }

@@ -15,14 +15,8 @@ const Tetris = () => {
   const [dropTime, setDropTime] = useState(null);
   const [gameOver, setGameOver] = useState(false);
 
-  const [player, resetPlayer, updatePlayerPos, playerRotate] = usePlayer();
-  const [stage, setStage] = useStage(player);
-
-  const startGame = () => {
-    setStage(createStage());
-    resetPlayer();
-    setGameOver(false);
-  };
+  const [player, updatePlayerPos, resetPlayer] = usePlayer();
+  const [stage, setStage] = useStage(player, resetPlayer);
 
   const movePlayer = (direction) => {
     if (!checkCollision(player, stage, { x: direction, y: 0 })) {
@@ -30,17 +24,22 @@ const Tetris = () => {
     }
   };
 
+  const startGame = () => {
+    setStage(createStage());
+    resetPlayer();
+    setGameOver(false);
+  };
+
   const drop = () => {
     if (!checkCollision(player, stage, { x: 0, y: 1 })) {
       updatePlayerPos({ x: 0, y: 1, collided: false });
     } else {
-      // Game over
       if (player.pos.y < 1) {
-        console.log('Game Over!!!');
+        console.log('Game Over');
         setGameOver(true);
         setDropTime(null);
       }
-      updatePlayerPos({ x: 0, y: 1, collided: true });
+      updatePlayerPos({ x: 0, y: 0, collided: true });
     }
   };
 
@@ -56,29 +55,39 @@ const Tetris = () => {
         movePlayer(1);
       } else if (keyCode === 40) {
         dropPlayer();
-      } else if (keyCode === 38) {
-        playerRotate(stage, 1);
       }
     }
   };
 
+  console.log('re-render');
+
   return (
-    <div className="tetris" onKeyDown={(e) => move(e)}>
-      <Stage stage={stage} />
-      <aside className="side">
-        <div className="side-show">
-          {gameOver ? (
-            <Display gameOver={gameOver} text="Game Over" />
-          ) : (
-            <>
-              <Display text="Score" />
-              <Display text="Rows" />
-              <Display text="Level" />
-            </>
-          )}
-        </div>
-        <StratButton callback={startGame} />
-      </aside>
+    <div
+      className="tetris-wrapper"
+      role="button"
+      tabIndex="0"
+      onKeyDown={(e) => move(e)}
+    >
+      <div className="tetris">
+        <Stage stage={stage} />
+        <aside className="side">
+          <div className="side-show">
+            {gameOver ? (
+              <Display gameOver={gameOver} text="Game Over" />
+            ) : (
+              <>
+                <Display text="Score" />
+                <Display text="Rows" />
+                <Display text="Level" />
+              </>
+            )}
+          </div>
+          <button className="start-button" type="button" onClick={startGame}>
+            Start Game
+          </button>
+          {/* <StratButton onClick={startGame} /> */}
+        </aside>
+      </div>
     </div>
   );
 };
