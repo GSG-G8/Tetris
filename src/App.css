@@ -6,8 +6,4 @@
 
 .App {
   text-align: center;
-  min-height: 100vh;
-  background-image: url('./assets/images/jeremy-bishop-G9i_plbfDgk-unsplash.jpg');
-  display: flex;
-  align-items: center;
 }

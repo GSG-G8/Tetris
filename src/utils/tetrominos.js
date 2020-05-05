@@ -1,5 +1,5 @@
 const TETROMINOUS = {
-  0: { shape: [[0]], color: '0,0,0' },
+  0: { shape: [[0]], color: '#000000' },
   I: {
     shape: [
       [0, 'I', 0, 0],
@@ -7,7 +7,7 @@ const TETROMINOUS = {
       [0, 'I', 0, 0],
       [0, 'I', 0, 0],
     ],
-    color: '50, 227, 230',
+    color: '#32e3e6',
   },
   J: {
     shape: [
@@ -15,7 +15,7 @@ const TETROMINOUS = {
       [0, 'J', 0],
       ['J', 'J', 0],
     ],
-    color: '63, 95, 223',
+    color: '#3f5fdf',
   },
   L: {
     shape: [
@@ -23,14 +23,14 @@ const TETROMINOUS = {
       [0, 'L', 0],
       [0, 'L', 'L'],
     ],
-    color: '223, 173, 63',
+    color: '#dfad3f',
   },
   O: {
     shape: [
       ['O', 'O'],
       ['O', 'O'],
     ],
-    color: '223, 271, 63',
+    color: '#a7bf2e',
   },
   S: {
     shape: [
@@ -38,15 +38,15 @@ const TETROMINOUS = {
       ['S', 'S', 0],
       [0, 0, 0],
     ],
-    color: '48, 211, 56',
+    color: '#30d338',
   },
   T: {
     shape: [
-      [0, 0, 0],
       ['T', 'T', 'T'],
       [0, 'T', 0],
+      [0, 0, 0],
     ],
-    color: '123, 61, 198',
+    color: '#7b3dc6',
   },
   Z: {
     shape: [
@@ -54,7 +54,7 @@ const TETROMINOUS = {
       [0, 'Z', 'Z'],
       [0, 0, 0],
     ],
-    color: '22, 78, 78',
+    color: '#164e4e',
   },
 };
 
