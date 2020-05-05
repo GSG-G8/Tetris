@@ -1,7 +1,7 @@
 import { useState, useCallback } from 'react';
 
 import { TETROMINOUS, randomTetromino } from '../utils/tetrominos';
-import { STAGE_WIDTH } from '../utils/createStage';
+import { STAGE_WIDTH, checkCollision } from '../utils/createStage';
 
 const usePlayer = () => {
   const [player, setPlayer] = useState({
@@ -9,6 +9,8 @@ const usePlayer = () => {
     tetromino: TETROMINOUS[0].shape,
     collided: false,
   });
+
+  console.log('prev', player.pos)
 
   // rotate
   const rotate = (matrix, direction) => {
@@ -41,11 +43,12 @@ const usePlayer = () => {
   };
 
   const updatePlayerPos = ({ x, y, collided }) => {
+    console.log('x', x);console.log('y', y);
     setPlayer((previous) => ({
       ...previous,
       pos: { x: (previous.pos.x += x), y: (previous.pos.y += y) },
       collided,
-    }));
+    }));console.log(player.pos)
   };
 
   const resetPlayer = useCallback(() => {

@@ -15,7 +15,7 @@ const Tetris = () => {
   const [dropTime, setDropTime] = useState(null);
   const [gameOver, setGameOver] = useState(false);
 
-  const [player, updatePlayerPos, resetPlayer] = usePlayer();
+  const [player, updatePlayerPos, resetPlayer, playerRotate] = usePlayer();
   const [stage, setStage] = useStage(player, resetPlayer);
 
   const movePlayer = (direction) => {
@@ -32,7 +32,7 @@ const Tetris = () => {
 
   const drop = () => {
     if (!checkCollision(player, stage, { x: 0, y: 1 })) {
-      updatePlayerPos({ x: 0, y: 1, collided: false });
+      updatePlayerPos({ x: 0, y: 1, collided: false });console.log('ddd',player.pos)
     } else {
       if (player.pos.y < 1) {
         console.log('Game Over');
@@ -55,6 +55,8 @@ const Tetris = () => {
         movePlayer(1);
       } else if (keyCode === 40) {
         dropPlayer();
+      } else if (keyCode === 38) {
+        playerRotate(stage, 1);
       }
     }
   };
@@ -82,10 +84,7 @@ const Tetris = () => {
               </>
             )}
           </div>
-          <button className="start-button" type="button" onClick={startGame}>
-            Start Game
-          </button>
-          {/* <StratButton onClick={startGame} /> */}
+          <StratButton callback={startGame} />
         </aside>
       </div>
     </div>
