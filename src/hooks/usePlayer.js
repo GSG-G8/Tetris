@@ -1,7 +1,7 @@
 import { useState, useCallback } from 'react';
 
 import { TETROMINOUS, randomTetromino } from '../utils/tetrominos';
-import { STAGE_WIDTH, checkCollision } from '../utils/createStage';
+import { STAGE_WIDTH } from '../utils/createStage';
 
 const usePlayer = () => {
   const [player, setPlayer] = useState({
